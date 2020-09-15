@@ -19,15 +19,15 @@
 	." ("
 	. "id INT AUTO_INCREMENT PRIMARY KEY,"
 	. "name char(32),"
-  . "comment TEXT,"
-  . "nichiji TIMESTAMP,"
-  . "password char(10)"
+  	. "comment TEXT,"
+  	. "nichiji TIMESTAMP,"
+ 	. "password char(10)"
 	.");";
-  $stmt = $pdo->query($sql);
+  　　$stmt = $pdo->query($sql);
 
 //フォームが空でなかったら
   if(!empty($_POST['name']) && !empty($_POST['comment']) && !empty($_POST['pass'])) {
-//変数を定義
+
    $name = $_POST['name'];
    $comment = $_POST['comment'];
    $password = $_POST['pass'];
@@ -68,7 +68,7 @@
     $edit = $_POST['edit'];
     $edipass = $_POST['edipass'];
 
-    $id = $edit ; // idがこの値のデータだけを抽出したい、とする
+    $id = $edit ; 
 
     $sql = 'SELECT * FROM tbmm5_1 WHERE id=:id ';
     $stmt = $pdo->prepare($sql);                  
@@ -151,11 +151,11 @@
 	$results = $stmt->fetchAll();
 	foreach ($results as $row){
 		
-		echo $row['id'].',';
-		echo $row['name'].',';
-    echo $row['comment'].',';
-    echo $row['nichiji'].',';
-		echo $row['password'].'<br>';
+	echo $row['id'].',';
+	echo $row['name'].',';
+    	echo $row['comment'].',';
+    	echo $row['nichiji'].',';
+	echo $row['password'].'<br>';
 	echo "<hr>";
 	}
 
